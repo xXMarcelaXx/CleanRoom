@@ -154,42 +154,15 @@ class Datoshojasetcs120141Controller extends Controller
 
     public function finalcheck(Request $request,$id)
     {
-        foreach($request->registro as $key=>$value)
-        {
+        foreach ($request->registro as $key => $value) {
             $registro = Registro::find($value['id']);
-            if($registro)
-            {
-                $registro->d1 = $value['d1'];
-                $registro->d2 = $value['d2'];
-                $registro->d3 = $value['d3'];
-                $registro->d4 = $value['d4'];
-                $registro->d5 = $value['d5'];
-                $registro->d6 = $value['d6'];
-                $registro->d7 = $value['d7'];
-                $registro->d8 = $value['d8'];
-                $registro->d9 = $value['d9'];
-                $registro->d10 = $value['d10'];
-                $registro->d11 = $value['d11'];
-                $registro->d12 = $value['d12'];
-                $registro->d13 = $value['d13'];
-                $registro->d14 = $value['d14'];
-                $registro->d15 = $value['d15'];
-                $registro->d16 = $value['d16'];
-                $registro->d17 = $value['d17'];
-                $registro->d18 = $value['d18'];
-                $registro->d19 = $value['d19'];
-                $registro->d20 = $value['d20'];
-                $registro->d21 = $value['d21'];
-                $registro->d22 = $value['d22'];
-                $registro->d23 = $value['d23'];
-                $registro->d24 = $value['d24'];
-                $registro->d25 = $value['d25'];
-                $registro->d26 = $value['d26'];
-                $registro->d27 = $value['d27'];
-                $registro->d28 = $value['d28'];
-                $registro->d29 = $value['d29'];
-                $registro->d30 = $value['d30'];
-                $registro->d31 = $value['d31'];
+            if ($registro) {
+                for ($i = 1; $i <= 31; $i++) {
+                    $fieldName = 'd' . $i;
+                    if (isset($value[$fieldName])) {
+                        $registro->$fieldName = $value[$fieldName];
+                    }
+                }
                 $registro->save();
             }
         }

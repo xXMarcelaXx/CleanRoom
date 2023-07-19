@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerPrueba;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DatoshojaController;
+use App\Http\Controllers\DatoshojaController2;
 use App\Http\Controllers\ReversoController00;
 use App\Http\Controllers\Reversosetcs20Controller;
 use App\Http\Controllers\Reversosetcs201Controller;
