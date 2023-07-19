@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <img src="/images/R.png" alt="" id="logoborg">
                 <div>
-                <a href="Turno1" class="btn btn-info" style="color: white">Volver</a>
+                <a href="operacionesTurno57" class="btn btn-info" style="color: white">Volver</a>
                 <a href="/logout" class="btn" id="b3">Cerrar sesion</a>                    
                 </div>
             </div>
