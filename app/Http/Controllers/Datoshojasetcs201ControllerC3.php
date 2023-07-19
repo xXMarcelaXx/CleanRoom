@@ -151,6 +151,9 @@ class Datoshojasetcs201ControllerC3 extends Controller
         $carbon = Carbon::now('America/Monterrey');
         $diaString = $carbon->format('d');
         $dia = intval($diaString);
+        $carbon = Carbon::now('America/Monterrey');
+        $diaString = $carbon->format('d');
+        $dia = intval($diaString);
 
         return view('hojaschequeo.hojas5-7.F7-SETCS-ELE-20-L1-01-3.check')
         ->with('registros',$registros)

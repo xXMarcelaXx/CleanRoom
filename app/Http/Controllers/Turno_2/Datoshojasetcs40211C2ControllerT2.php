@@ -147,6 +147,9 @@ class Datoshojasetcs40211C2Controllert2 extends Controller
     {
         $registros = Registro::all();
         $datoshojas = Datoshoja::all();
+        $carbon = Carbon::now('America/Monterrey');
+        $diaString = $carbon->format('d');
+        $dia = intval($diaString);
         return view('hojaschequeo.hojas6-8.F7-SETCS-ELE-40-L1-02-2.check')
         ->with('registros',$registros)
         ->with('datoshojas',$datoshojas);

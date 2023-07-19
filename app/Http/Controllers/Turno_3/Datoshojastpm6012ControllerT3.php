@@ -147,6 +147,9 @@ class Datoshojastpm6012ControllerT3 extends Controller
     {
         $registros = Registro::all();
         $datoshojas = Datoshoja::all();
+        $carbon = Carbon::now('America/Monterrey');
+        $diaString = $carbon->format('d');
+        $dia = intval($diaString);
         return view('hojaschequeo.hojas7-3.F7-TPM-ELE-60-L1-01-2.check')
         ->with('registros',$registros)
         ->with('datoshojas',$datoshojas);

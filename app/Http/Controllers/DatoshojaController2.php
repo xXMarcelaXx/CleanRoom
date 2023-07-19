@@ -149,6 +149,9 @@ class DatoshojaController2 extends Controller
         $carbon = Carbon::now('America/Monterrey');
         $diaString = $carbon->format('d');
         $dia = intval($diaString);
+        $carbon = Carbon::now('America/Monterrey');
+        $diaString = $carbon->format('d');
+        $dia = intval($diaString);
 
         return view('hojaschequeo.hojas5-7.F7-SETCS-ELE-CR-L1-01-2.check')
         ->with('registros',$registros)
