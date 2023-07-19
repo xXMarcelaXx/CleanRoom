@@ -63,9 +63,7 @@
             </thead>
             <tbody>
                 @foreach ($reversos as $reverso)
-                @if ($reverso->documentoid == "F7-TPM-ELE-60-L1-01-2" && $reverso->turno == "2" &&
-                $reverso->mes == $datoshoja->mes && 
-                $reverso->año == $datoshoja->año)
+                @if ($reverso->documentoid == "F7-TPM-ELE-60-L1-01-2" && $reverso->turno == "2")
                 <tr>
                     <td>{{$reverso->fechahora}}</td>
                     <td>{{$reverso->falla}}</td>

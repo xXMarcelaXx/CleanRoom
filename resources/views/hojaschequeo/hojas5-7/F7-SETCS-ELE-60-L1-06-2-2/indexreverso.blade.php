@@ -28,8 +28,9 @@
                     <div>
                         @auth                    
                 <a href="" class="btn btn-info" style="color: white">IBM: {{auth()->user()->name ?? 
-                auth(
-                    <a href="F7-SETCS-ELE-60-L1-06-2-2-1" class="btn btn-info" style="color: white">Volver</a>
+                auth()->user()->IBM}} \ {{auth()->user()->name ?? auth()->user()->firstname}}</a>
+                @endauth
+                    <a href="F7-SETCS-ELE-60-L1-06-2-1-1" class="btn btn-info" style="color: white">Volver</a>
                     <a href="/logout" class="btn" id="b3">Cerrar sesion</a>                        
                     </div>
 
@@ -62,9 +63,7 @@
             </thead>
             <tbody>
                 @foreach ($reversos as $reverso)
-                @if ($reverso->documentoid == "F7-SETCS-ELE-60-L1-06-2-2-1" && $reverso->turno == "1" &&
-                     $reverso->mes == $datoshoja->mes && 
-                     $reverso->año == $datoshoja->año)
+                @if ($reverso->documentoid == "F7-SETCS-ELE-60-L1-06-2-2-1" && $reverso->turno == "1")
                 <tr>
                     <td>{{$reverso->fechahora}}</td>
                     <td>{{$reverso->falla}}</td>

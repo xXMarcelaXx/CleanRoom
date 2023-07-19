@@ -94,7 +94,7 @@ class ControllerPrueba extends Controller
         view()-> share('reversos',$reversos);
         $pdf = PDF::loadView('pruebaPDF');
         $pdf->setPaper('b3','landscape');
-        return $pdf-> download('prueba.pdf');
+        return $pdf-> stream('pruebaPDF.pdf');
     }
 
 

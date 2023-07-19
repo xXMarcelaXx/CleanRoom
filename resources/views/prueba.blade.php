@@ -346,39 +346,40 @@
     </tr>
 
 
-    
-    <td class="fijar">{{ $registro->criterio }}</td>
-    <td>
-        @if ($registro['d1'] == 'Cumple')
-            <p style="color: green">{{ $registro['d1'] }}</p>
-        @else
-            <p style="color: red">{{ $registro['d1'] }}</p>
-        @endif
-    </td>
 
 
     <tr>
-        <td>{{ $registro->criterio }}</td>
+        <td class="fijar">{{ $registro->criterio }}</td>
         @for ($i = 1; $i <= 31; $i++)
             <td>
-                @if ($registro[{{ 'd{$i}' }}] == 'Cumple')
-                  <p style="color: green">{{ $registro[{{ 'd{$i}' }}] }}</p>
+                @if ($registro["d{$i}"] == 'Cumple')
+                  <p style="color: green">{{ $registro["d{$i}"] }}</p>
                 @else
-                  <p style="color: red">{{ $registro[{{ 'd{$i}' }}] }}</p>
+                  <p style="color: red">{{ $registro["d{$i}"] }}</p>
                 @endif
             </td>
         @endfor
     </tr>
 
-
     <td>{{ $registro->criterio}}, {{$registro->valor1}}, {{$registro->valor2}}</td>
-    <td>
-        @if ($registro['d1'] >= $registro->valor1 && $registro['d1'] <= $registro->valor2)
-            <p style="color: green">{{ $registro['d1'] }}</p>
-        @else
-            <p style="color: red">{{ $registro['d1'] }}</p>
-        @endif
-    </td>
+    @for ($i = 1; $i <= 31; $i++)
+        <td>
+            @if ($registro["d{$i}"] >= $registro->valor1 && $registro["d{$i}"] <= $registro->valor2)
+              <p style="color: green">{{ $registro["d{$i}"] }}</p>
+            @else
+              <p style="color: red">{{ $registro["d{$i}"] }}</p>
+            @endif
+        </td>
+    @endfor
+
+
+
+    <td class="fijar">{{ $registro->criterio }}</td>
+    @for ($i = 1; $i <= 31; $i++)
+        <td>
+            <p>{{ $registro["d{$i}"] }}</p>
+        </td>
+    @endfor
 
 </body>
 
