@@ -153,7 +153,8 @@ class Datoshojastpm16012ControllerT2 extends Controller
         $dia = intval($diaString);
         return view('hojaschequeo.hojas6-8.F7-TPM-ELE-160-L1-01-2.check')
         ->with('registros',$registros)
-        ->with('datoshojas',$datoshojas);
+        ->with('datoshojas',$datoshojas)
+        ->with('dia',$dia);
     }
 
     public function finalcheck(Request $request,$id)

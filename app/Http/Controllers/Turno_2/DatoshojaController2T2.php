@@ -150,7 +150,8 @@ class DatoshojaController2t2 extends Controller
         $dia = intval($diaString);
         return view('hojaschequeo.hojas6-8.F7-SETCS-ELE-CR-L1-01-2.check')
         ->with('registros',$registros)
-        ->with('datoshojas',$datoshojas);
+        ->with('datoshojas',$datoshojas)
+        ->with('dia',$dia);
     }
 
     public function finalcheck(Request $request,$id)

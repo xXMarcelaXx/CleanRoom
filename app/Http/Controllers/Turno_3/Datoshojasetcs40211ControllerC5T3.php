@@ -152,7 +152,8 @@ class Datoshojasetcs40211ControllerC5t3 extends Controller
         $dia = intval($diaString);
         return view('hojaschequeo.hojas7-3.F7-SETCS-ELE-40-L1-02-5.check')
         ->with('registros',$registros)
-        ->with('datoshojas',$datoshojas);
+        ->with('datoshojas',$datoshojas)
+        ->with('dia',$dia);
     }
 
     public function finalcheck(Request $request,$id)
