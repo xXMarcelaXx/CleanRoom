@@ -32,7 +32,7 @@
 <a href="/operacionesTurno57" class="btn" id="boton57">Turno 1</a>  
 <br><br>
 
-<a href="/operacionesTurno68" class="btn" id="boton68">Turno 2</a>  
+<a href="/operacionesTurno68" class="btn" id="boton57">Turno 2</a>  
 <br><br>
 
 <a href="/operacionesTurno3" class="btn" id="boton57">Turno 3</a>  
@@ -41,6 +41,8 @@
 <a href="registro" class="btn" id="boton68">Registrar usuario</a> 
 <br><br>
 <a href="cambiarFecha" class="btn" id="botonFecha">Cambiar mes y año</a> 
+<br><br>
+<a href="reportes" class="btn" id="botonReportes">Reportes</a> 
 <br><br>
     <!-- Button trigger modal -->
     <a type="button" class="btn"  id="botonEliminar" data-toggle="modal" 

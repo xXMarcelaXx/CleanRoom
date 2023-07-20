@@ -10,13 +10,13 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="/css/app.css" rel="stylesheet">
     <style>
-.fijar {
-  /* Fija los encabezados de la tabla en la parte superior */
-  position: sticky;
-  left: 0;
-  z-index: 1;
-}
-</style>
+        .fijar {
+            /* Fija los encabezados de la tabla en la parte superior */
+            position: sticky;
+            left: 0;
+            z-index: 1;
+        }
+    </style>
 </head>
 
 <body id="vistas">
@@ -27,13 +27,14 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <img src="/images/R.png" alt="" id="logoborg">
-                <div>                    
-                @auth                    
-                <a href="" class="btn btn-info" style="color: white">IBM: {{auth()->user()->name ?? 
-                auth()->user()->IBM}} \ {{auth()->user()->name ?? auth()->user()->firstname}}</a>
-                <a href="F7-SETCS-ELE-20-L1-01-2-1" class="btn btn-info" id="b3">Volver</a> 
-                <a href="/logout" class="btn" id="b3">Cerrar sesion</a> 
-                @endauth                       
+                <div>
+                    @auth
+                        <a href="" class="btn btn-info" style="color: white">IBM:
+                            {{ auth()->user()->name ?? auth()->user()->IBM }} \
+                            {{ auth()->user()->name ?? auth()->user()->firstname }}</a>
+                        <a href="F7-SETCS-ELE-20-L1-01-2-1" class="btn btn-info" id="b3">Volver</a>
+                        <a href="/logout" class="btn" id="b3">Cerrar sesion</a>
+                    @endauth
                 </div>
             </div>
         </nav>
@@ -113,96 +114,118 @@
                         <th>1</th>
                     </tr>
                 </thead>
-                    <tbody>
-                        <tr>
-                            <th colspan="33" class="table-secondary">
-                                <p align="center">CADA DIA (Al inicio del turno)</p>
-                            </th>
-                        </tr>
-                        @foreach ($registros as $key=>$registro)
-                        <form action="{{route('finalcheckSETCS201',$registro->id)}}" method="POST">                            
-                            @if ($registro->turno == '1' &&
-                                $registro->documentoid == 'F7-SETCS-ELE-20-L1-01-2-1' &&
-                                $registro->partetabla == 'AL INICIO DE TURNO' &
-                                $registro->tipo == 'cumple' &&
-                                $registro->mes == $datoshoja->mes &&
-                                $registro->año == $datoshoja->año)
-                                <input class="form-control" type="hidden" value="{{$registro->id}}" name="registro[{{$key}}][id]">
+                <tbody>
+                    <tr>
+                        <th colspan="33" class="table-secondary">
+                            <p align="center">CADA DIA (Al inicio del turno)</p>
+                        </th>
+                    </tr>
+                    @foreach ($registros as $key => $registro)
+                        <form action="{{ route('finalcheckSETCS201', $registro->id) }}" method="POST">
+                            @if (
+                                $registro->turno == '1' &&
+                                    $registro->documentoid == 'F7-SETCS-ELE-20-L1-01-2-1' &&
+                                    ($registro->partetabla == 'AL INICIO DE TURNO') & ($registro->tipo == 'cumple') &&
+                                    $registro->mes == $datoshoja->mes &&
+                                    $registro->año == $datoshoja->año)
+                                <input class="form-control" type="hidden" value="{{ $registro->id }}"
+                                    name="registro[{{ $key }}][id]">
                                 <tr>
-<td class="fijar">{{ $registro->criterio }}</td>
-                                    @for ($i = 1; $i <= 31; $i++)
-                                    <td>
-                                        @php
-                                            $fieldName = "registro[{$key}][d{$i}]";
-                                            $disabled = !($dia >= $i - 1 && $dia <= $i + 1);
-                                        @endphp
-                                        <label>
-                                            <input type="radio" name="{{ $fieldName }}" id="{{ "d{$i}" }}"  value="Cumple" {{ $registro->{"d{$i}"} == 'Cumple' ? 'checked' : '' }} @if($disabled) disabled @endif> Cumple
-                                        </label>
-                                        <label>
-                                            <input type="radio" name="{{ $fieldName }}" id="{{ "d{$i}" }}" value="No Cumple" {{ $registro->{"d{$i}"} == 'No Cumple' ? 'checked' : '' }} @if($disabled) disabled @endif> No Cumple
-                                        </label>
-                                        <label>
-                                            <input type="radio" name="{{ $fieldName }}" id="{{ "d{$i}" }}" value="No Aplica" {{ $registro->{"d{$i}"} == 'No Aplica' ? 'checked' : '' }} @if($disabled) disabled @endif> No Aplica
-                                        </label>
-                                        <label>
-                                            <input type="radio" name="{{ $fieldName }}" id="{{ "d{$i}" }}" value="NP" {{ $registro->{"d{$i}"} == 'NP' ? 'checked' : '' }} @if($disabled) disabled @endif> NP
-                                        </label>
-                                    
-                                    </td>
-                                    @endfor
-                                </tr>
-                            @endif
-                            @if ($registro->turno == '1' &&
-                                $registro->documentoid == 'F7-SETCS-ELE-20-L1-01-2-1' &&
-                                $registro->partetabla == 'AL INICIO DE TURNO' &
-                                $registro->tipo == 'rango' &&
-                                $registro->mes == $datoshoja->mes &&
-                                $registro->año == $datoshoja->año)
-                                <input class="form-control" type="hidden" value="{{$registro->id}}" name="registro[{{$key}}][id]">
-                                <tr>
-<td class="fijar">{{ $registro->criterio }}</td>
+                                    <td class="fijar">{{ $registro->criterio }}</td>
                                     @for ($i = 1; $i <= 31; $i++)
                                         <td>
                                             @php
                                                 $fieldName = "registro[{$key}][d{$i}]";
                                                 $disabled = !($dia >= $i - 1 && $dia <= $i + 1);
+                                            @endphp
+                                            <label>
+                                                <input type="radio" name="{{ $fieldName }}"
+                                                    id="{{ "d{$i}" }}" value="Cumple"
+                                                    {{ $registro->{"d{$i}"} == 'Cumple' ? 'checked' : '' }}
+                                                    @if ($disabled) disabled @endif> Cumple
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="{{ $fieldName }}"
+                                                    id="{{ "d{$i}" }}" value="No Cumple"
+                                                    {{ $registro->{"d{$i}"} == 'No Cumple' ? 'checked' : '' }}
+                                                    @if ($disabled) disabled @endif> No Cumple
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="{{ $fieldName }}"
+                                                    id="{{ "d{$i}" }}" value="No Aplica"
+                                                    {{ $registro->{"d{$i}"} == 'No Aplica' ? 'checked' : '' }}
+                                                    @if ($disabled) disabled @endif> No Aplica
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="{{ $fieldName }}"
+                                                    id="{{ "d{$i}" }}" value="NP"
+                                                    {{ $registro->{"d{$i}"} == 'NP' ? 'checked' : '' }}
+                                                    @if ($disabled) disabled @endif> NP
+                                            </label>
 
-                                            @endphp
-                                            <input type="tel" step="0.01" size='15' name="{{ $fieldName }}" id="{{ "d{$i}" }}" tabindex="1" value="{{ $registro->{"d{$i}"} }}" @if($disabled) disabled @endif>
-                            
                                         </td>
                                     @endfor
                                 </tr>
                             @endif
-                            @if ($registro->turno == '1' &&
-                                $registro->documentoid == 'F7-SETCS-ELE-20-L1-01-2-1' &&
-                                $registro->partetabla == 'AL INICIO DE TURNO' &
-                                $registro->tipo == 'texto' &&
-                                $registro->mes == $datoshoja->mes &&
-                                $registro->año == $datoshoja->año)
-                                <input class="form-control" type="hidden" value="{{$registro->id}}" name="registro[{{$key}}][id]">
+                            @if (
+                                $registro->turno == '1' &&
+                                    $registro->documentoid == 'F7-SETCS-ELE-20-L1-01-2-1' &&
+                                    ($registro->partetabla == 'AL INICIO DE TURNO') & ($registro->tipo == 'rango') &&
+                                    $registro->mes == $datoshoja->mes &&
+                                    $registro->año == $datoshoja->año)
+                                <input class="form-control" type="hidden" value="{{ $registro->id }}"
+                                    name="registro[{{ $key }}][id]">
                                 <tr>
-<td class="fijar">{{ $registro->criterio }}</td>
+                                    <td class="fijar">{{ $registro->criterio }}</td>
+                                    @for ($i = 1; $i <= 31; $i++)
+                                        <td>
+                                            @php
+                                                $fieldName = "registro[{$key}][d{$i}]";
+                                                $disabled = !($dia >= $i - 1 && $dia <= $i + 1);
+                                                
+                                            @endphp
+                                            <input type="tel" step="0.01" size='15'
+                                                name="{{ $fieldName }}" id="{{ "d{$i}" }}" tabindex="1"
+                                                value="{{ $registro->{"d{$i}"} }}"
+                                                @if ($disabled) disabled @endif>
+
+                                        </td>
+                                    @endfor
+                                </tr>
+                            @endif
+                            @if (
+                                $registro->turno == '1' &&
+                                    $registro->documentoid == 'F7-SETCS-ELE-20-L1-01-2-1' &&
+                                    ($registro->partetabla == 'AL INICIO DE TURNO') & ($registro->tipo == 'texto') &&
+                                    $registro->mes == $datoshoja->mes &&
+                                    $registro->año == $datoshoja->año)
+                                <input class="form-control" type="hidden" value="{{ $registro->id }}"
+                                    name="registro[{{ $key }}][id]">
+                                <tr>
+                                    <td class="fijar">{{ $registro->criterio }}</td>
                                     @for ($i = 1; $i <= 31; $i++)
                                         <td>
                                             @php
                                                 $fieldName = "registro[{$key}][d{$i}]";
                                                 $disabled = !($dia >= $i - 1 && $dia <= $i + 1);
                                             @endphp
-                                            <input type="text" size="15" name="{{ $fieldName }}" id="{{ "d{$i}" }}" tabindex="1" value="{{ $registro->{"d{$i}"} }}" @if($disabled) disabled @endif>
+                                            <input type="text" size="15" name="{{ $fieldName }}"
+                                                id="{{ "d{$i}" }}" tabindex="1"
+                                                value="{{ $registro->{"d{$i}"} }}"
+                                                @if ($disabled) disabled @endif>
                                         </td>
                                     @endfor
                                 </tr>
                                 </tr>
                             @endif
-                        @endforeach                            
-                    </tbody>
-                            @csrf
-                            @method('PUT')
-                            <button type="submit" class="btn btn-primary" id="miBoton">Guardar Cambios</button>
-                        </form>                     
+                    @endforeach
+                </tbody>
+                @csrf
+                @method('PUT')
+                <button type="submit" class="btn btn-primary" id="miBoton">Guardar Cambios</button>
+                </form>
             </table><br><br><br><br><br><br><br><br>
         </div>
 </body>
+
 </html>
