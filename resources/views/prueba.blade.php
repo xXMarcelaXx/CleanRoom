@@ -381,6 +381,14 @@
         </td>
     @endfor
 
+
+    <td class="fijar">{{ $registro->criterio }}</td>
+    @for ($i = 1; $i <= 31; $i++)
+        <td>
+            <p>{{ $registro["d{$i}"] }}</p>
+        </td>
+    @endfor
+
 </body>
 
 </html>

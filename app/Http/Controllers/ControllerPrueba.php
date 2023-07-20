@@ -98,6 +98,10 @@ class ControllerPrueba extends Controller
     }
 
 
+    public function reportes()
+    {
+        return view('reportes');
+    }
 
 
 

@@ -181,6 +181,10 @@ Route::middleware(['auth'])->group(function () {
    Route::post('/updateFecha',[Turno57Controller::class,'updateFecha'])->name('updateFecha');
 
 
+   //----------------------------
+   Route::post('/reportes',[Turno57Controller::class,'reportes'])->name('reportes');
+
+
 
     //-----------------------------operaciones TURNO 3---------------------------------------------
 Route::get('/operacionesTurno3',[Turno3Controller::class,'operaciones'])->name('operacionesTurno3');
