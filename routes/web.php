@@ -182,7 +182,7 @@ Route::middleware(['auth'])->group(function () {
 
 
    //----------------------------
-   Route::post('/reportes',[Turno57Controller::class,'reportes'])->name('reportes');
+   Route::get('/reportes',[ControllerPrueba::class,'reportes'])->name('reportes');
 
 
 

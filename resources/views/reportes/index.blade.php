@@ -31,7 +31,44 @@
 
 
 
-<div class="container">
+<div class="container" >
+    <br><br><br>
+    <br>
+    <h1 style="text-align: center; color:white; background-color:rgb(29, 29, 29)">Reportes Turno 1</h1>
+    <div class="container" id="contenedor-reportes">
+    <ul>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+    </ul>        
+    </div>
+    <br><br>
+    <h1 style="text-align: center; color:white; background-color:rgb(29, 29, 29)">Reportes Turno 2</h1>
+    <div class="container" id="contenedor-reportes">
+    <ul>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+        <li><a href="#">Descargar</a></li>
+    </ul>        
+    </div>
+    <br><br>
+    <h1 style="text-align: center; color:white; background-color:rgb(29, 29, 29)">Reportes Turno 2</h1>
+    <div class="">
+        <ul>
+            <li><a href="#">Descargar</a></li>
+            <li><a href="#">Descargar</a></li>
+            <li><a href="#">Descargar</a></li>
+            <li><a href="#">Descargar</a></li>
+            <li><a href="#">Descargar</a></li>
+            <li><a href="#">Descargar</a></li>
+        </ul> 
+    </div>
 
 </div>
 

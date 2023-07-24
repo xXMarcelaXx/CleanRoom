@@ -208,3 +208,10 @@ border-style: solid;
   font-family: 'Oswald', sans-serif;
   align-items: center;
 }
+
+#contenedor-reportes
+{
+  width: 80%;
+  background-color: white;
+  opacity: 0.95;
+}
